@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6030023368805231495}
   - component: {fileID: 7532797799160555961}
   - component: {fileID: 87705350829487881}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,6 +155,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   landingTimer: 0
+  islanding: 0
   sprites:
   - {fileID: 21300000, guid: c73a14ae579ec794db786a6cb7b74e20, type: 3}
   - {fileID: 21300000, guid: 24c052ba7e2db304696a436c1d715f04, type: 3}
@@ -296,6 +297,6 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.029301345}
+  m_Offset: {x: 0, y: 0.003241852}
   serializedVersion: 2
-  m_Radius: 0.41969174
+  m_Radius: 0.21990238

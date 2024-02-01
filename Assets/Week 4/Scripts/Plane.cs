@@ -15,6 +15,7 @@ public class Plane : MonoBehaviour
     public  AnimationCurve landing;
     public float landingTimer;
     SpriteRenderer spriteRenderer;
+    public bool islanding = false;
 
     public List<Sprite> sprites;
 
@@ -53,7 +54,7 @@ public class Plane : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKey(KeyCode.Space)) 
+        if(islanding == true) 
         {
             landingTimer += 0.5f * Time.deltaTime;
             float interpolation = landing.Evaluate(landingTimer);
@@ -99,21 +100,36 @@ public class Plane : MonoBehaviour
             lastPosition = newPosition;
         }
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    /*private void OnTriggerEnter2D(Collider2D collision)
     {
-        //spriteRenderer.color = Color.red;
-        Debug.Log(collision);
-    }
+        if (collision.gameObject.layer == 3)
+        {
+            Debug.Log("Holy catfish batman");
+
+            //if (collision.OverlapPoint(transform.position))
+            //{
+                islanding = true;
+            //}
+        }
+    }*/
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if(Vector2.Distance(transform.position, collision.transform.position) < 1)
+        if (collision.gameObject.layer == 6)
         {
-            Destroy(gameObject);
-            Destroy(collision);
+            if (Vector2.Distance(transform.position, collision.transform.position) < 1)
+            {
+                Destroy(gameObject);
+                Destroy(collision);
+            }
+            spriteRenderer.color = Color.red;
         }
-        spriteRenderer.color = Color.red;
+        if (collision.gameObject.layer == 3)
+        {
+            Debug.Log("Holy catfish batman");
+
+            islanding = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -125,4 +141,5 @@ public class Plane : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
 }
