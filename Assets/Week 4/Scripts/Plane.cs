@@ -98,5 +98,31 @@ public class Plane : MonoBehaviour
             lineRenderer.SetPosition(lineRenderer.positionCount - 1, newPosition);
             lastPosition = newPosition;
         }
-    }   
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //spriteRenderer.color = Color.red;
+        Debug.Log(collision);
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if(Vector2.Distance(transform.position, collision.transform.position) < 1)
+        {
+            Destroy(gameObject);
+            Destroy(collision);
+        }
+        spriteRenderer.color = Color.red;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        spriteRenderer.color = Color.white;
+    }
+
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
 }
