@@ -11,12 +11,28 @@ public class Plane : MonoBehaviour
     LineRenderer lineRenderer;
     Vector2 currentPosition;
     Rigidbody2D rigidbody;
-    public float speed = 1f;
+    public float speed = 1;
     public  AnimationCurve landing;
     public float landingTimer;
+    SpriteRenderer spriteRenderer;
+
+    public List<Sprite> sprites;
 
     private void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
+        spriteRenderer.sprite = sprites[Random.Range(0,4)];
+        transform.localScale = new Vector3(5,5,5);
+
+        float spawnx = Random.Range(-5, 5);
+        float spawny = Random.Range(-5, 5);
+        float rotation = Random.Range(0, 360);
+        speed = (float)Random.Range(1, 3);
+
+        transform.position = new Vector3(spawnx, spawny, 0);
+        transform.rotation = Quaternion.Euler(0, 0, rotation);
+
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.positionCount = 1;
         lineRenderer.SetPosition(0, transform.position);
@@ -45,7 +61,7 @@ public class Plane : MonoBehaviour
             {
                 Destroy(gameObject);
             }
-            transform.localScale = Vector3.Lerp(Vector3.one, Vector3.zero, interpolation);
+            transform.localScale = Vector3.Lerp(Vector3.one * 5, Vector3.zero, interpolation);
         }
 
         lineRenderer.SetPosition(0, transform.position);
