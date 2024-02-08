@@ -13,6 +13,14 @@ public class Spear : MonoBehaviour
         rigidbody = GetComponent<Rigidbody2D>();
     }
 
+    private void Update()
+    {
+        if(transform.position.x <= -10)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     private void FixedUpdate()
     {
         rigidbody.MovePosition(rigidbody.position + -speed * Time.deltaTime);
@@ -21,5 +29,6 @@ public class Spear : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         collision.gameObject.SendMessage("TakeDamage", 5, SendMessageOptions.DontRequireReceiver);
+        Destroy(gameObject);
     }
 }
