@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -22,6 +24,19 @@ public class Knight : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         health = maxHealth;
+
+        if(PlayerPrefs.HasKey("health"))
+        {
+            health = PlayerPrefs.GetInt("health", (int)health);
+        }
+        else
+        {
+            health = maxHealth;
+        }
+        PlayerPrefs.SetInt("health", (int)health);
+        SendMessage("initialHealthSet", health);
+
+        TakeDamage(0);
     }
 
     private void FixedUpdate()
@@ -69,7 +84,8 @@ public class Knight : MonoBehaviour
     {       
         health -= damage;
         health = Mathf.Clamp(health, 0, maxHealth);
-        if(health == 0)
+        PlayerPrefs.SetInt("health", (int)health);
+        if (health == 0)
         {
             animator.SetTrigger("Death");
             isDead = true;
@@ -77,7 +93,10 @@ public class Knight : MonoBehaviour
         else
         {
             isDead = false;
-            animator.SetTrigger("TakeDamage");
+            if(damage != 0)
+            {
+                animator.SetTrigger("TakeDamage");
+            }
         }
     }
 }
