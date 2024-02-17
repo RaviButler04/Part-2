@@ -36,5 +36,10 @@ public class CannonController : MonoBehaviour
         float angle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
         rigidbody.rotation = -angle;
     }
+
+    public void takeDamage()
+    {
+        Destroy(gameObject);
+    }
         
 }

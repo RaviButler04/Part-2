@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cannon: {fileID: 3529700381377073903, guid: e492cd4ec58e5214a873fac79b02fc40, type: 3}
+  cannonBall: {fileID: 6825838035337626154, guid: 2a8cabc82409a694a9463f0af7b52b4b, type: 3}
   speed: 50
 --- !u!212 &3653139012600188798
 SpriteRenderer:
@@ -130,7 +131,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

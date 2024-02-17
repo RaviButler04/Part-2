@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     Rigidbody2D rigidbody;
     public GameObject cannon;
     public float speed = 50f;
+    int health = 3;
 
     // Start is called before the first frame update
     void Start()
@@ -47,7 +48,10 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(health == 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void FixedUpdate()
@@ -60,6 +64,12 @@ public class Enemy : MonoBehaviour
         rigidbody.rotation = -angle;
 
         rigidbody.velocity = transform.up * speed * Time.deltaTime;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        health --;
+        //SendMessage("takeDamage");
     }
 
 }
