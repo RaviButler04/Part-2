@@ -13,7 +13,6 @@ public class CannonController : MonoBehaviour
     float health = 5;
     Boolean isUpgraded = false;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -64,6 +63,7 @@ public class CannonController : MonoBehaviour
     {
         health--;
         Destroy(collision.gameObject);
+        SendMessage("TakeDamage", 1);
     }
 
     public void Upgrade()

@@ -6,15 +6,10 @@ using UnityEngine;
 
 public class CannonHealth : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Slider slider;
 
-    // Update is called once per frame
-    void Update()
+    public void TakeDamage(float damage)
     {
-        
+        slider.value -= damage;
     }
 }
