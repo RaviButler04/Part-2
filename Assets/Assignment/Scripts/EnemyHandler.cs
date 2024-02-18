@@ -21,7 +21,7 @@ public class EnemyHandler : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (timer > 1)
+        if (timer > 0.5)
         {
             Instantiate(enemy);
             timer = 0;

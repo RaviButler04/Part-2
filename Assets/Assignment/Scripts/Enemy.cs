@@ -12,12 +12,22 @@ public class Enemy : MonoBehaviour
     public float speed = 50f;
     int health = 3;
     Animator animator;
+    SpriteRenderer spriteRenderer;
+    bool increasing = true;
+    float colorTimer = 0;
+
+    public AnimationCurve colors;
+    //public float hitTimer = 3;
+    //bool isHit = false;
+
 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
         rigidbody= GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        Vector3 originalScale = transform.localScale;
 
         int spawnArea = Random.Range(0, 4);
         int spawnx = 0;
@@ -51,7 +61,30 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(health == 0)
+
+        if(colorTimer == 0 * Time.deltaTime)
+        {
+            increasing = true;
+        }
+        else if (colorTimer == 10 * Time.deltaTime)
+        {
+            increasing = false;
+        }
+
+        if(increasing == true) 
+        {
+            colorTimer += 0.1f * Time.deltaTime;
+        }
+        else if (increasing == false)
+        {
+            colorTimer -= 0.1f * Time.deltaTime;
+        }
+
+        float interpolation = colors.Evaluate(colorTimer);
+
+        spriteRenderer.color = Color.Lerp(Color.blue, Color.red, interpolation);
+
+        if (health == 0)
         {
             animator.SetTrigger("isDead");
             float length = animator.GetCurrentAnimatorStateInfo(0).length;
@@ -83,5 +116,4 @@ public class Enemy : MonoBehaviour
         }
         //SendMessage("takeDamage");
     }
-
 }
