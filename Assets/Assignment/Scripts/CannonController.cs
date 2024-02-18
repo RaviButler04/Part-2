@@ -10,6 +10,7 @@ public class CannonController : MonoBehaviour
     Rigidbody2D rigidbody;
     public GameObject cannonBall;
     public GameObject cannonLoc;
+    float health = 5;
 
 
     // Start is called before the first frame update
@@ -26,6 +27,12 @@ public class CannonController : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             Instantiate(cannonBall, transform.position, transform.rotation);
+
+        }
+
+        if (health == 0)
+        {
+            Destroy(gameObject);
         }
     
     }
@@ -41,5 +48,11 @@ public class CannonController : MonoBehaviour
     {
         Destroy(gameObject);
     }
-        
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        health--;
+        Destroy(collision.gameObject);
+    }
+
 }
