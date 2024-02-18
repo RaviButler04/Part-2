@@ -57,17 +57,6 @@ public class Enemy : MonoBehaviour
             float length = animator.GetCurrentAnimatorStateInfo(0).length;
 
             Destroy(gameObject, length);
-
-            /*
-            if(length > 0.1)
-            {
-                length--;
-            }
-            else if(length < 0.1)
-            {
-                Destroy(gameObject);
-            }
-            */
         }
     }
 
