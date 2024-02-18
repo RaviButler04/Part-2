@@ -3,6 +3,7 @@ using UnityEngine.EventSystems;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class Enemy : MonoBehaviour
 {
@@ -10,10 +11,12 @@ public class Enemy : MonoBehaviour
     public GameObject cannon;
     public float speed = 50f;
     int health = 3;
+    Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
         rigidbody= GetComponent<Rigidbody2D>();
 
         int spawnArea = Random.Range(0, 4);
@@ -50,7 +53,21 @@ public class Enemy : MonoBehaviour
     {
         if(health == 0)
         {
-            Destroy(gameObject);
+            animator.SetTrigger("isDead");
+            float length = animator.GetCurrentAnimatorStateInfo(0).length;
+
+            Destroy(gameObject, length);
+
+            /*
+            if(length > 0.1)
+            {
+                length--;
+            }
+            else if(length < 0.1)
+            {
+                Destroy(gameObject);
+            }
+            */
         }
     }
 
@@ -64,11 +81,17 @@ public class Enemy : MonoBehaviour
         rigidbody.rotation = -angle;
 
         rigidbody.velocity = transform.up * speed * Time.deltaTime;
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         health --;
+
+        if(health > 0)
+        {
+            animator.SetTrigger("isHurt");
+        }
         //SendMessage("takeDamage");
     }
 
