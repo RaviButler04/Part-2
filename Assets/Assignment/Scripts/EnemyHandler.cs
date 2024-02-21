@@ -6,9 +6,11 @@ using UnityEngine;
 
 public class EnemyHandler : MonoBehaviour
 {
+    //create timer to spawn enemies
     float timer = 0;
+
+    //get enemy game object
     public GameObject enemy;
-    Vector2 place;
 
     // Start is called before the first frame update
     void Start()

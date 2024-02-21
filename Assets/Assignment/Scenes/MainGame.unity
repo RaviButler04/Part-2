@@ -829,7 +829,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8254eda767a73446a8ecd1e0b92a60f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cannonBall: {fileID: 6825838035337626154, guid: 2a8cabc82409a694a9463f0af7b52b4b, type: 3}
+  cannonBall: {fileID: 950292377184164648, guid: 2a8cabc82409a694a9463f0af7b52b4b, type: 3}
   cannonLoc: {fileID: 3529700381377073903, guid: e492cd4ec58e5214a873fac79b02fc40, type: 3}
 --- !u!212 &964606545
 SpriteRenderer:
@@ -947,7 +947,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: -1}
-  m_SizeDelta: {x: 0, y: 0.7436}
+  m_SizeDelta: {x: -2.1454, y: 0.7436}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1039137666
 MonoBehaviour:
@@ -1021,8 +1021,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 196.535, y: 39.002502}
-  m_SizeDelta: {x: 300.93, y: 30.738602}
+  m_AnchoredPosition: {x: 197.09045, y: 38.344666}
+  m_SizeDelta: {x: 318.4783, y: 32.5311}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1045498612
 MonoBehaviour:
