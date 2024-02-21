@@ -6,15 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Week 6/Scenes/UI Scene.unity
-    guid: 3d8dc7709d8f49141bdf23080d993d86
+    path: Assets/Assignment/Scenes/MainGame.unity
+    guid: 5e9541e5226e30647910b261ef3845bf
   - enabled: 1
-    path: Assets/Week 6/Scenes/SceneA.unity
-    guid: 373f77d7c502fcc45988a35d8035838c
-  - enabled: 1
-    path: Assets/Week 6/Scenes/SceneB.unity
-    guid: 80bdbe743454a134981bcbfeee2d1a08
-  - enabled: 1
-    path: Assets/Week 5/Scenes/Week5.unity
-    guid: 693f5a4792082364f8b879a6af9c780f
+    path: Assets/Assignment/Scenes/GameOver.unity
+    guid: 7508cd24aa953c8448521f70c0a22494
   m_configObjects: {}

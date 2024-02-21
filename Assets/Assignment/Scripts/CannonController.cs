@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class CannonController : MonoBehaviour
 {
@@ -42,7 +43,9 @@ public class CannonController : MonoBehaviour
 
         if (health == 0)
         {
-            Destroy(gameObject);
+            int CurrentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+            int nextSceneIndex = (CurrentSceneIndex + 1) % SceneManager.sceneCountInBuildSettings;
+            SceneManager.LoadScene(nextSceneIndex);
         }
     
     }
