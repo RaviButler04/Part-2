@@ -9,6 +9,7 @@ public class SceneHandling : MonoBehaviour
 {
     public void nextScene()
     {
+        //move to next scene
         int CurrentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int nextSceneIndex = (CurrentSceneIndex + 1) % SceneManager.sceneCountInBuildSettings;
         SceneManager.LoadScene(nextSceneIndex);

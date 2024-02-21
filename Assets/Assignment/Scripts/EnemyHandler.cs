@@ -9,14 +9,8 @@ public class EnemyHandler : MonoBehaviour
     //create timer to spawn enemies
     float timer = 0;
 
-    //get enemy game object
+    //reference game object
     public GameObject enemy;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-    
-    }
 
     // Update is called once per frame
     void Update()
@@ -25,7 +19,10 @@ public class EnemyHandler : MonoBehaviour
 
         if (timer > 0.5)
         {
+            //create enemy every 0.5 seconds
             Instantiate(enemy);
+
+            //reset timer
             timer = 0;
         }
     }
