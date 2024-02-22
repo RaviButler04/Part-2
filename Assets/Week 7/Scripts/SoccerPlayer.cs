@@ -8,7 +8,6 @@ public class SoccerPlayer : MonoBehaviour
 {
     SpriteRenderer spriteRenderer;
     //Color myColor = new Color(0, 0, 0);
-    //bool clickedOn = false;
 
     // Start is called before the first frame update
     void Start()
@@ -25,14 +24,7 @@ public class SoccerPlayer : MonoBehaviour
 
     private void OnMouseDown()
     {
-        //if (clickedOn)
-        //{
-        //    Selected(false);
-        //}
-        //else if (!clickedOn)
-        //{
             Selected(true);
-        //}
     }
 
     public void Selected(bool isSelected)
@@ -40,12 +32,10 @@ public class SoccerPlayer : MonoBehaviour
         if(isSelected) 
         {
             spriteRenderer.color = Color.white;
-            //clickedOn = true;
         }
         if (!isSelected)
         {
             spriteRenderer.color = Color.black;
-            //clickedOn = false;
         }
     }
 }
