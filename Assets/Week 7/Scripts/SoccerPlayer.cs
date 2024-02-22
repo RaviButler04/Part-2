@@ -24,7 +24,7 @@ public class SoccerPlayer : MonoBehaviour
 
     private void OnMouseDown()
     {
-            Selected(true);
+        SoccerController.SetSelectedPlayer(this);
     }
 
     public void Selected(bool isSelected)
