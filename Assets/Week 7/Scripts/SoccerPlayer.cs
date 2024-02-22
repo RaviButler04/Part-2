@@ -6,12 +6,14 @@ using UnityEngine;
 
 public class SoccerPlayer : MonoBehaviour
 {
+    Rigidbody2D rb;
     SpriteRenderer spriteRenderer;
-    //Color myColor = new Color(0, 0, 0);
+    public float speed = 1000;
 
     // Start is called before the first frame update
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         Selected(false);
     }
@@ -37,5 +39,10 @@ public class SoccerPlayer : MonoBehaviour
         {
             spriteRenderer.color = Color.black;
         }
+    }
+
+    public void Move(Vector2 direction)
+    {
+        rb.AddForce(direction * speed);
     }
 }
